@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@use '@angular/material' as mat;
+@import 'bootstrap/scss/bootstrap';
+@import "./palette.scss";
+@import "./variables.scss";
+@include mat.core();
+
+$myAngularApp-primary: mat.define-palette($app-palette, 500);
+$myAngularApp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$myAngularApp-warn: mat.define-palette(mat.$red-palette);
+$myAngularApp-theme: mat.define-light-theme((color: (primary: $myAngularApp-primary,
+        accent: $myAngularApp-accent,
+        warn: $myAngularApp-warn,
+      )));
+
+@include mat.all-component-themes($myAngularApp-theme);
+
+.main-color{
+  color:  $primary-color;
+}
+
+.secondary-color{
+  color: $secondary-color;
+}
+
+.main-bg{
+  background-color:  $primary-color;
+}
+
+.secondary-bg{
+  background-color: $secondary-color;
+}
+
+.grey-color{
+  color: #ccc;
+}
+
+.mat-mdc-tab-list{
+  .mdc-tab{
+    position: relative;
+  }
+}
+
+.fs-small{
+  font-size: $font-size-small;
+}
+
+.fs-normal{
+  font-size: $font-size-normal;
+}
+
+.fs-large{
+  font-size: $font-size-large;
+}

@@ -1,0 +1,94 @@
+<div class="home-container d-flex flex-column">
+  <!-- <app-app-breadcrumb></app-app-breadcrumb> -->
+  <mat-card class="flex-grow-1">
+    <mat-card-header class="d-flex flex-column p-2">
+      <div class="module-title">BUSSINESS ACTIVITY</div>
+      <div class="module-description d-flex flex-row m-2">
+        <mat-icon class="me-2 secondary-color">keyboard_backspace</mat-icon>
+        <span class="fw-bold"
+          >Purchase of fuels used for non-road vehicles (Mobile Combustion_Non-Road
+          Vehicles)</span
+        >
+      </div>
+      <mat-divider class="grey-color"></mat-divider>
+      <table class="table no-border" cellspacing="0" cellpadding="0">
+        <thead class="fs-small fw-lighter">
+          <tr>
+            <th scope="col" class="text-secondary">Emission Source</th>
+            <th scope="col" class="text-secondary">Emission Activity</th>
+            <th scope="col" class="text-secondary">Date Created</th>
+            <th scope="col" class="text-secondary">Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="text-primary link-opacity-100">
+                My company: Facility A
+              </div>
+            </td>
+            <td><div class="text-primary link-opacity-100">TBD</div></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-header>
+    <mat-card-content class="p-3 bg-dark-subtle flex-grow-1">
+      <mat-tab-group
+        class="bg-white h-100"
+        mat-stretch-tabs="false"
+        mat-align-tabs="start"
+      >
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">file_upload</mat-icon>
+            Upload Data
+          </ng-template>
+
+          <div class="w-100 py-2">
+            <mat-radio-group color="primary" [(ngModel)]="uploadFileMethod">
+              <mat-radio-button value="manual_entry"
+                >Manual Entry</mat-radio-button
+              >
+              <mat-radio-button value="template_upload"
+                >Template Upload</mat-radio-button
+              >
+              <mat-radio-button value="custom_files"
+                >Custom Files</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+
+          <mat-divider></mat-divider>
+          <div class="m-3">
+            <div [ngSwitch]="uploadFileMethod">
+              <div *ngSwitchCase="'manual_entry'">Manual Entry</div>
+              <div *ngSwitchCase="'template_upload'">Template Upload</div>
+              <div *ngSwitchCase="'custom_files'">
+                <custom-files-upload></custom-files-upload>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">crop_16_9</mat-icon>
+            Pineline & API
+          </ng-template>
+          Content 2
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">today</mat-icon>
+            Raw Date
+          </ng-template>
+
+          Content 3
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

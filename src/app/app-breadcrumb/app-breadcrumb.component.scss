@@ -1,0 +1,31 @@
+.breadcrumb-container{
+  // background-color: #1f7a1b;
+  color: #fff;
+
+  .breadcrumb-nav{
+    padding: 5px;
+    .breadcrumb{
+      color: #fff;
+      margin: 0;
+
+      .breadcrumb-item{
+        &::before{
+          color: #fff;
+        }
+        font-weight: bold;
+        color: #fff;
+        &>a{
+          color: #fff;
+          font-weight: normal;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  mat-icon {
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+  }
+}

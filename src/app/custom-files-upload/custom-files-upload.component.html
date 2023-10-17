@@ -1,0 +1,127 @@
+<label class="custom-slide-toggle my-2">
+  <span class="on-label me-1">Documents (PDF)</span>
+  <mat-slide-toggle color="primary" class="custom-slide-toggle-control"></mat-slide-toggle>
+  <span class="off-label ms-1">CSV or Excel</span>
+</label>
+
+<div class="intro d-flex flex-row secondary-bg p-2 my-2">
+  <div class="flex-grow-1 fw-bold">Upload & Extract Data Files for this Business Activity</div>
+  <mat-icon>keyboard_arrow_down</mat-icon>
+</div>
+
+<p class="my-2">EXTRACT DATA FROM ALL FILES</p>
+
+<div class="table-container d-flex flex-column border border-success p-2">
+  <div class="d-flex flex-row  my-2">
+    <div class="flex-grow-1"><b>Purchase of fuels used for non-road vehicles</b> (Mobile Combustion Non-Road Vehicles)</div>
+    <mat-icon>file_download</mat-icon>
+  </div>
+
+  <form [formGroup]="form">
+    <ng-container formArrayName="items">
+      <table mat-table [dataSource]="items.controls" class="border border-light-subtle my-2">
+        <!-- FileName Column -->
+        <ng-container matColumnDef="fileName">
+          <th mat-header-cell *matHeaderCellDef>File Name</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="text-primary">{{element.get('fileName').value}}</div>
+          </td>
+        </ng-container>
+
+        <!-- Entry Column -->
+        <ng-container matColumnDef="entry">
+          <th mat-header-cell *matHeaderCellDef>Entry</th>
+          <td mat-cell *matCellDef="let element">
+            <div>{{element.get('entry').value}}</div>
+          </td>
+        </ng-container>
+
+          <!-- Entry Status Column -->
+          <ng-container matColumnDef="entryStatus">
+            <th mat-header-cell *matHeaderCellDef>Entry Status</th>
+            <td mat-cell *matCellDef="let element">
+              <entry-status [entryStatus]="element.get('entryStatus').value"></entry-status>
+            </td>
+          </ng-container>
+
+           <!-- Fuel Type Column -->
+           <ng-container matColumnDef="fuelType">
+            <th mat-header-cell *matHeaderCellDef>Fuel Type</th>
+            <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+                <input formControlName="fuelType" required  class="form-control input-control-100" matInput />
+                <mat-error *ngIf="element.get('fuelType').touched && element.get('fuelType')?.invalid">
+                  <div *ngIf="element.get('fuelType').errors?.['required']">Fuel Type is required</div>
+                </mat-error>
+            </td>
+          </ng-container>
+
+            <!-- Vehicle Type Column -->
+            <ng-container matColumnDef="vehicleType">
+              <th mat-header-cell *matHeaderCellDef>Vehicle Type</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+                <!-- <mat-form-field> -->
+                  <input formControlName="vehicleType" required class="form-control input-control-100"  matInput />
+                  <mat-error *ngIf="element.get('vehicleType').touched && element.get('vehicleType')?.invalid">
+                    <div *ngIf="element.get('vehicleType').errors?.['required']">Vehicle Type is required</div>
+                  </mat-error>
+                  <!-- </mat-form-field> -->
+              </td>
+            </ng-container>
+
+             <!-- Fuel Quantity Column -->
+             <ng-container matColumnDef="fuelQuantity">
+              <th mat-header-cell *matHeaderCellDef>Fuel Quantity</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+                <!-- <mat-form-field> -->
+                  <input formControlName="fuelQuantity" required type="number" class="form-control input-control-100" matInput />
+                  <mat-error *ngIf="element.get('fuelQuantity').touched && element.get('fuelQuantity')?.invalid">
+                    <div *ngIf="element.get('fuelQuantity').errors?.['required']">Fuel Quantity is required</div>
+                  </mat-error>
+                  <!-- </mat-form-field> -->
+              </td>
+            </ng-container>
+
+             <!-- Fuel Quantity Unit Column -->
+             <ng-container matColumnDef="fuelQuantityUnit">
+              <th mat-header-cell *matHeaderCellDef>Fuel Quantity Unit</th>
+              <td mat-cell *matCellDef="let element; let i = index"  [formGroup]="element">
+                <!-- <mat-form-field> -->
+                  <input formControlName="fuelQuantityUnit"  required class="form-control input-control-100" matInput />
+                  <mat-error *ngIf="element.get('fuelQuantityUnit').touched && element.get('fuelQuantityUnit')?.invalid">
+                    <div *ngIf="element.get('fuelQuantityUnit').errors?.['required']">Fuel Quantity Unit is required</div>
+                  </mat-error>
+                  <!-- </mat-form-field> -->
+              </td>
+            </ng-container>
+
+            <!-- Date or Period Column -->
+            <ng-container matColumnDef="dateOrPeriod">
+              <th mat-header-cell *matHeaderCellDef>Date Or Period</th>
+              <td mat-cell *matCellDef="let element">
+                <div class="text-primary">{{element.get('dateOrPeriod').value | date:'mediumDate'}}</div>
+              </td>
+            </ng-container>
+
+            <!-- Period Attribution Column -->
+            <ng-container matColumnDef="periodAttribution">
+              <th mat-header-cell *matHeaderCellDef>Period Attribution</th>
+              <td mat-cell *matCellDef="let element">
+                <div class="text-primary">{{element.get('periodAttribution').value}}</div>
+              </td>
+            </ng-container>
+
+        <!-- Define more columns as needed -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </ng-container>
+
+    <div class="d-flex flex-row  my-2">
+      <div class="flex-grow-1"></div>
+      <button class="btn btn-default text-success" >Cancel</button>
+      <button type="submit" class="btn btn-success main-bg" (click)="save();">Save</button>
+      <!-- <button type="submit" class="btn btn-success main-bg" [disabled]="testForm.invalid" (click)="save(testForm);">Save</button> -->
+    </div>
+  </form>
+</div>

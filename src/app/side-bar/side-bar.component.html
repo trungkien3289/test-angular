@@ -1,0 +1,97 @@
+<div class="d-flex flex-column sidebar-container h-100">
+  <!-- Start top sidebar -->
+  <mat-icon class="colapse-btn" (click)="toogleBar()">{{
+    isOpen ? "navigate_before" : "keyboard_arrow_right"
+  }}</mat-icon>
+  <div class="d-flex w-100 align-items-center p-3">
+    <img class="logo" src="../../favicon.ico" />
+  </div>
+
+   <!-- End top sidebar -->
+
+   <!-- Start main sidebar -->
+  <mat-tree
+    *ngIf="isOpen"
+    class="flex-grow-1"
+    [dataSource]="dataSource"
+    [treeControl]="treeControl"
+  >
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node
+      class="child-node"
+      [class.active]="node.active"
+      *matTreeNodeDef="let node"
+      matTreeNodePadding
+    >
+      <!-- use a disabled button to provide padding for tree leaf -->
+      <button mat-icon-button disabled></button>
+      <mat-icon class="me-2 childnode-icon">{{ node.icon }}</mat-icon>
+      <a
+        routerLinkActive="active-link"
+        class="node-name"
+        [routerLink]="[node.routerPath]"
+        >{{ node.name }}</a
+      >
+    </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node
+      routerLinkActive="active-link"
+      [routerLink]="[node.routerPath]"
+      class="master-node"
+      [class.active]="node.active"
+      *matTreeNodeDef="let node; when: hasChild"
+      matTreeNodePadding
+    >
+      <div class="d-flex w-100 align-items-center master-node-content">
+        <div *ngIf="node.active" class="active-gap"></div>
+        <mat-icon class="node-icon mx-3">{{ node.icon }}</mat-icon>
+        <a class="node-name flex-grow-1"> {{ node.name }}</a>
+        <button
+          class="expand-btn"
+          mat-icon-button
+          matTreeNodeToggle
+          [attr.aria-label]="'Toggle ' + node.name"
+        >
+          <mat-icon class="float-end">
+            {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
+          </mat-icon>
+        </button>
+      </div>
+    </mat-tree-node>
+  </mat-tree>
+  <div
+    *ngIf="!isOpen"
+    class="nav-bar-collapse d-flex flex-column w-100 flex-grow-1"
+  >
+    <div
+      *ngFor="let node of dataSource.data"
+      routerLinkActive="active-link"
+      [routerLink]="[node.routerPath]"
+      class="master-node m-3 d-flex align-items-center"
+      [ngClass]="{
+        'justify-content-center': !isOpen
+      }"
+    >
+      <mat-icon>{{ node.icon }}</mat-icon>
+    </div>
+  </div>
+  <!-- End main sidebar-->
+
+  <!-- Start bottom sidebar -->
+  <mat-divider class="devider"></mat-divider>
+  <div class="d-flex w-100 py-3">
+    <mat-icon class="mx-3">apps</mat-icon>
+    <span *ngIf="isOpen">Switch Dashboard</span>
+  </div>
+  <div class="d-flex w-100 py-3">
+    <mat-icon class="mx-3">notifications_none</mat-icon>
+    <span *ngIf="isOpen">Notification</span>
+  </div>
+  <mat-divider class="devider"></mat-divider>
+  <div class="d-flex align-items-center w-100 py-3">
+    <img class="user-avartar mx-3" src="../../assets/images/User.jpg" />
+    <span *ngIf="isOpen">User</span>
+  </div>
+
+  <!-- End bottom sidebar -->
+</div>
