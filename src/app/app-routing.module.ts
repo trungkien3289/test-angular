@@ -10,6 +10,11 @@ import { BussinessActivityComponent } from './manage/bussiness-activity/bussines
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'home',
     component: HomeComponent,
     data: { breadcrumb: 'Home' },
