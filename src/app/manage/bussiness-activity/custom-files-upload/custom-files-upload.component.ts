@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { FileDataService } from '../services/file-data.service';
+import { FileDataService } from '../../../services/file-data.service';
 import { FileExtractData } from './file-extract-data.model';
 
 @Component({

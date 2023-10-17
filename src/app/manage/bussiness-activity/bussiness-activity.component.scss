@@ -1,0 +1,22 @@
+.home-container{
+  height: 100%;
+
+  .module-title{
+    color: #ccc;
+    margin-left: 40px;
+  }
+
+  table,
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  th,
+  td {
+    border: none;
+  }
+
+  table{
+    margin: 0;
+  }
+}

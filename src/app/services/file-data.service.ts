@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { FileExtractData } from '../custom-files-upload/file-extract-data.model';
+import { FileExtractData } from '../manage/bussiness-activity/custom-files-upload/file-extract-data.model';
 
 @Injectable({
   providedIn: 'root'

@@ -39,7 +39,7 @@ const TREE_DATA: FoodNode[] = [
       },
       {
         icon: 'panorama_fish_eye',
-        name: 'Emmissions Tracker',
+        name: 'Emissions Tracker',
         active: false,
         routerPath:'home/emissions-tracker',
       },
@@ -47,7 +47,7 @@ const TREE_DATA: FoodNode[] = [
         icon: 'panorama_fish_eye',
         name: 'Comparative Analytics',
         active: false,
-        routerPath:'home/com[arative-analytics',
+        routerPath:'home/comparative-analytics',
       },
       {
         icon: 'panorama_fish_eye',
@@ -105,13 +105,13 @@ const TREE_DATA: FoodNode[] = [
         icon: 'panorama_fish_eye',
         name: 'List & Categories',
         active: false,
-        routerPath:'setup/list-categories',
+        routerPath:'setup/list-and-categories',
       },
       {
         icon: 'panorama_fish_eye',
         name: 'Emission Methodologies',
         active: false,
-        routerPath:'setup/rmissions-methodologies',
+        routerPath:'setup/emission-methodologies',
       }
     ],
   },

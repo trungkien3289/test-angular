@@ -5,9 +5,9 @@
       <div class="text-warning">Accepted</div>
       <div>Low quality data</div>
     </div>
-    <mat-icon class="text-warning">info_outline</mat-icon>
+    <mat-icon class="text-warning" matTooltip="Low quality data">info_outline</mat-icon>
   </div>
   <div *ngSwitchCase="'Rejected'" class="d-flex flex-row justify-content-between align-items-center">
-    <div class="text-danger me-1">Rejected</div><mat-icon class="text-danger">info_outline</mat-icon>
+    <div class="text-danger me-1">Rejected</div><mat-icon class="text-danger" matTooltip="Reject causes low quality">info_outline</mat-icon>
   </div>
 </div>

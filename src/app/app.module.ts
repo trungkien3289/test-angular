@@ -8,11 +8,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon'
 import { CommonModule } from '@angular/common';
-import { ManagerCarbonWikiComponent } from './manager-carbon-wiki/manager-carbon-wiki.component';
+import { ManagerCarbonWikiComponent } from './manage/manager-carbon-wiki/manager-carbon-wiki.component';
 import { ManageComponent } from './manage/manage.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { HomeCarbonHeatmapComponent } from './home-carbon-heatmap/home-carbon-heatmap.component';
+import { HomeCarbonHeatmapComponent } from './home/home-carbon-heatmap/home-carbon-heatmap.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { AppBreadcrumbComponent } from './app-breadcrumb/app-breadcrumb.component';
@@ -23,12 +23,14 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { CustomSlideToggleComponent } from './base-components/custom-slide-toggle/custom-slide-toggle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomFilesUploadComponent } from './custom-files-upload/custom-files-upload.component';
+import { CustomFilesUploadComponent } from './manage/bussiness-activity/custom-files-upload/custom-files-upload.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import { EntryStatusComponent } from './entry-status/entry-status.component';
-import { CarbonInsightsComponent } from './carbon-insights/carbon-insights.component';
+import { EntryStatusComponent } from './manage/bussiness-activity/custom-files-upload/entry-status/entry-status.component';
+import { CarbonInsightsComponent } from './home/carbon-insights/carbon-insights.component';
+import { BussinessActivityComponent } from './manage/bussiness-activity/bussiness-activity.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { CarbonInsightsComponent } from './carbon-insights/carbon-insights.compo
     CustomFilesUploadComponent,
     EntryStatusComponent,
     CarbonInsightsComponent,
+    BussinessActivityComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { CarbonInsightsComponent } from './carbon-insights/carbon-insights.compo
     ReactiveFormsModule,
     MatExpansionModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
 
   providers: [],

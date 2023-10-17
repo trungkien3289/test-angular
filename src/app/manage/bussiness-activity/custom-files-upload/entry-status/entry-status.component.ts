@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EntryStatusEnum } from '../common/entry-status.enum';
+import { EntryStatusEnum } from '../../../../common/entry-status.enum';
 
 @Component({
   selector: 'entry-status',
